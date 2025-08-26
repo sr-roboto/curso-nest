@@ -53,4 +53,11 @@ export class CarsService {
     });
     return foundCar;
   }
+
+  deleteCar(id: string) {
+    let foundCar = this.findOne(id);
+    if (!foundCar) throw new BadRequestException(`Car with ID ${id} not found`);
+
+    this.cars = this.cars.filter((car) => car.id !== id);
+  }
 }
