@@ -7,9 +7,9 @@ import { v4 as uuid } from 'uuid';
 @Injectable()
 export class BrandsService {
   private brands: Brand[] = [
-    { id: uuid(), name: 'Toyota', createdAt: Date.now() },
-    { id: uuid(), name: 'Honda', createdAt: Date.now() },
-    { id: uuid(), name: 'Ford', createdAt: Date.now() },
+    // { id: uuid(), name: 'Toyota', createdAt: Date.now() },
+    // { id: uuid(), name: 'Honda', createdAt: Date.now() },
+    // { id: uuid(), name: 'Ford', createdAt: Date.now() },
   ];
 
   create(createBrandDto: CreateBrandDto) {
@@ -60,5 +60,9 @@ export class BrandsService {
     if (!foundBrand)
       throw new NotFoundException(`Brand with ID ${id} not found`);
     this.brands = this.brands.filter((brand) => brand.id !== id);
+  }
+
+  fillBrandsWithSeedData(brands: Brand[]) {
+    this.brands = brands;
   }
 }
