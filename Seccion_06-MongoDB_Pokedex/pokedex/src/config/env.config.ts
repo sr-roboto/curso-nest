@@ -1,0 +1,5 @@
+export const EnvConfiguration = () => ({
+  mongodb: process.env.MONGO_DB || '',
+  port: process.env.PORT || 3000,
+  defaultLimit: process.env.DEFAULT_LIMIT || 7,
+});
