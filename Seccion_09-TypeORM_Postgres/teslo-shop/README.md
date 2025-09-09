@@ -4,8 +4,30 @@
 
 # Teslo API
 
-1. Levantar la base de datos
+1. Clonar el repositorio
+
+```bash
+git clone https://github.com/sr-roboto/curso-nest.git
+```
+
+2. Instalar las dependencias
+
+```bash
+yarn install
+```
+
+3. Clonar el archivo **.env.template** y renombrarlo a **.env**
+
+4. Cambiar las varibles de entorno
+
+5. Levantar la base de datos
 
 ```bash
 docker-compuse up -d
+```
+
+6. Ejecutar en modo de desarrollo la aplicación
+
+```bash
+yarn start:dev
 ```

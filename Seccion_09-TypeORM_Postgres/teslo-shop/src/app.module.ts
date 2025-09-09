@@ -3,6 +3,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { EnvConfiguration } from './config/env.config';
 import { ConfigService } from '@nestjs/config';
+import { ProductsModule } from './products/products.module';
 
 @Module({
   imports: [
@@ -21,10 +22,7 @@ import { ConfigService } from '@nestjs/config';
       }),
       inject: [ConfigService],
     }),
+    ProductsModule,
   ],
 })
-export class AppModule {
-  constructor() {
-    console.log('holii');
-  }
-}
+export class AppModule {}
