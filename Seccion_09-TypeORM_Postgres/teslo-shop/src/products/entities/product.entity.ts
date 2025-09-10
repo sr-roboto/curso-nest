@@ -1,5 +1,6 @@
 import {
   BeforeInsert,
+  BeforeUpdate,
   Column,
   DeleteDateColumn,
   Entity,
@@ -42,6 +43,9 @@ export class Product {
   @Column({ type: 'text' })
   gender: string;
 
+  @Column({ type: 'text', array: true, default: [] })
+  tags: string[];
+
   @DeleteDateColumn()
   deletedAt?: Date;
 
@@ -51,6 +55,14 @@ export class Product {
       this.slug = this.title;
     }
 
+    this.slug = this.slug
+      .toLocaleLowerCase()
+      .replaceAll(' ', '_')
+      .replaceAll("'", '');
+  }
+
+  @BeforeUpdate()
+  checkSlugUpdate() {
     this.slug = this.slug
       .toLocaleLowerCase()
       .replaceAll(' ', '_')
